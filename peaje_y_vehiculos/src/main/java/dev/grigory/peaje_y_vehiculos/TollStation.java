@@ -50,4 +50,11 @@ public class TollStation {
         }
         System.out.println("Total collected: $" + totalCollected);
     }
+    public String getName() {
+        return name;
+    }
+    
+    public String getCity() {
+        return city;
+    }
 }
