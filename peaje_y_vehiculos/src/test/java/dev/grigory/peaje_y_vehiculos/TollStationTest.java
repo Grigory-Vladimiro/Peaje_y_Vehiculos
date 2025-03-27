@@ -31,4 +31,22 @@ public class TollStationTest {
         station.processVehicle(truck);
         assertEquals(200, station.getTotalCollected());
     }
+    @Test
+    public void testStationShouldStoreAllProcessedVehicles() {
+        TollStation station = new TollStation("Estación Oeste", "Castropol");
+        Car car = new Car("CAR1");
+        Motorcycle moto = new Motorcycle("MOTO1");
+        Truck truck = new Truck("TRK1", 2);
+
+        station.processVehicle(car);
+        station.processVehicle(moto);
+        station.processVehicle(truck);
+
+        var vehicles = station.getAllVehicles();
+
+        assertEquals(3, vehicles.size());
+        assertTrue(vehicles.contains(car));
+        assertTrue(vehicles.contains(moto));
+        assertTrue(vehicles.contains(truck));
+    }
 }
