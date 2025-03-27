@@ -17,4 +17,11 @@ public class TollStationTest {
         station.processVehicle(car);
         assertEquals(100, station.getTotalCollected());
     }
+    @Test
+    public void testStationShouldProcessMotorcycleAndAddToTotal() {
+        TollStation station = new TollStation("Estación Xagó", "Avilés");
+        Motorcycle moto = new Motorcycle("MOTO321");
+        station.processVehicle(moto);
+        assertEquals(50, station.getTotalCollected());
+    }
 }
