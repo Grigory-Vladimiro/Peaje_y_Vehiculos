@@ -37,4 +37,17 @@ public class TollStation {
     public List<Object> getAllVehicles() {
         return processedVehicles;
     }
+    public void printSummary() {
+        System.out.println("=== Toll Station Summary ===");
+        for (Object vehicle : processedVehicles) {
+            if (vehicle instanceof Car) {
+                System.out.println("Car: " + ((Car) vehicle).getPlate());
+            } else if (vehicle instanceof Motorcycle) {
+                System.out.println("Motorcycle: " + ((Motorcycle) vehicle).getPlate());
+            } else if (vehicle instanceof Truck) {
+                System.out.println("Truck: " + ((Truck) vehicle).getPlate() + " (" + ((Truck) vehicle).getAxles() + " axles)");
+            }
+        }
+        System.out.println("Total collected: $" + totalCollected);
+    }
 }
