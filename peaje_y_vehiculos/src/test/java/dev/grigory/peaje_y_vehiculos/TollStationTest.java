@@ -69,7 +69,7 @@ public class TollStationTest {
         assertTrue(output.contains("CARX"));
         assertTrue(output.contains("MOTOX"));
         assertTrue(output.contains("TRUCKX"));
-        assertTrue(output.contains("Total recaudado: 200"));
+        assertTrue(output.contains("Total collected: $250"));
 
         System.setOut(System.out);
     }
