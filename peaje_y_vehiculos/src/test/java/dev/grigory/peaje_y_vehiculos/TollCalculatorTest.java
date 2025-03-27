@@ -11,4 +11,10 @@ public class TollCalculatorTest {
         int toll = TollCalculator.calculate(car);
         assertEquals(100, toll);
     }
+    @Test
+    public void testMotorcycleShouldPay50() {
+        Motorcycle moto = new Motorcycle("MOTO567");
+        int toll = TollCalculator.calculate(moto);
+        assertEquals(50, toll);
+    }
 }
