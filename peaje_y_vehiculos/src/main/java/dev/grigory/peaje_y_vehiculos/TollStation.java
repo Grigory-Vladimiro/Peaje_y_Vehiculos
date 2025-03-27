@@ -1,9 +1,14 @@
 package dev.grigory.peaje_y_vehiculos;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TollStation {
     private String name;
     private String city;
     private int totalCollected;
+
+    private List<Object> processedVehicles = new ArrayList<>();
 
     public TollStation(String name, String city) {
         this.name = name;
@@ -25,5 +30,8 @@ public class TollStation {
     public void processVehicle(Truck truck) {
         int toll = TollCalculator.calculate(truck);
         totalCollected += toll;
+    }
+    public List<Object> getAllVehicles() {
+        return processedVehicles;
     }
 }
