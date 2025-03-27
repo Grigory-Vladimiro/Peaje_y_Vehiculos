@@ -3,6 +3,9 @@ package dev.grigory.peaje_y_vehiculos;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 public class TollStationTest {
 
     @Test
@@ -48,5 +51,26 @@ public class TollStationTest {
         assertTrue(vehicles.contains(car));
         assertTrue(vehicles.contains(moto));
         assertTrue(vehicles.contains(truck));
+    }
+    @Test
+    public void testPrintSummaryShouldIncludeVehiclesAndTotal() {
+        TollStation station = new TollStation("Estación Final", "Llanes");
+        station.processVehicle(new Car("CARX"));
+        station.processVehicle(new Motorcycle("MOTOX"));
+        station.processVehicle(new Truck("TRUCKX", 2));
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        station.printSummary();
+
+        String output = outContent.toString();
+
+        assertTrue(output.contains("CARX"));
+        assertTrue(output.contains("MOTOX"));
+        assertTrue(output.contains("TRUCKX"));
+        assertTrue(output.contains("Total recaudado: 200"));
+
+        System.setOut(System.out);
     }
 }
