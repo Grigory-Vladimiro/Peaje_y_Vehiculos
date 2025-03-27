@@ -18,4 +18,8 @@ public class TollStation {
         int toll = TollCalculator.calculate(car);
         totalCollected += toll;
     }
+    public void processVehicle(Motorcycle moto) {
+        int toll = TollCalculator.calculate(moto);
+        totalCollected += toll;
+    }
 }
