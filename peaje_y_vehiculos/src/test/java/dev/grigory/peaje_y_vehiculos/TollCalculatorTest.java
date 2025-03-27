@@ -17,4 +17,10 @@ public class TollCalculatorTest {
         int toll = TollCalculator.calculate(moto);
         assertEquals(50, toll);
     }
+    @Test
+    public void testTruckShouldPay50PerAxle() {
+        Truck truck = new Truck("TRK999", 3); 
+        int toll = TollCalculator.calculate(truck);
+        assertEquals(150, toll);
+    }
 }
