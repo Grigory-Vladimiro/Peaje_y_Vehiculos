@@ -10,4 +10,11 @@ public class TollStationTest {
         TollStation station = new TollStation("Estación Central", "Oviedo");
         assertEquals(0, station.getTotalCollected());
     }
+    @Test
+    public void testStationShouldProcessCarAndAddToTotal() {
+        TollStation station = new TollStation("Estación San Lorenzo", "Gijón");
+        Car car = new Car("CAR123");
+        station.processVehicle(car);
+        assertEquals(100, station.getTotalCollected());
+    }
 }
