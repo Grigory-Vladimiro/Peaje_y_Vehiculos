@@ -22,14 +22,17 @@ public class TollStation {
     public void processVehicle(Car car) {
         int toll = TollCalculator.calculate(car);
         totalCollected += toll;
+        processedVehicles.add(car);
     }
     public void processVehicle(Motorcycle moto) {
         int toll = TollCalculator.calculate(moto);
         totalCollected += toll;
+        processedVehicles.add(moto);
     }
     public void processVehicle(Truck truck) {
         int toll = TollCalculator.calculate(truck);
         totalCollected += toll;
+        processedVehicles.add(truck);
     }
     public List<Object> getAllVehicles() {
         return processedVehicles;
