@@ -22,4 +22,8 @@ public class TollStation {
         int toll = TollCalculator.calculate(moto);
         totalCollected += toll;
     }
+    public void processVehicle(Truck truck) {
+        int toll = TollCalculator.calculate(truck);
+        totalCollected += toll;
+    }
 }
