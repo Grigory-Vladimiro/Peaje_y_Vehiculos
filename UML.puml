@@ -1,0 +1,67 @@
+@startuml Peaje y vehiculos
+package dev.grigory.peaje_y_vehiculos {
+
+    class Car {
+        - plate : String
+        + Car(plate : String)
+        + getPlate() : String
+    }
+
+    class Motorcycle {
+        - plate : String
+        + Motorcycle(plate : String)
+        + getPlate() : String
+    }
+
+    class Truck {
+        - plate : String
+        - axles : int
+        + Truck(plate : String, axles : int)
+        + getPlate() : String
+        + getAxles() : int
+    }
+
+    class TollCalculator {
+        + calculate(car : Car) : int
+        + calculate(moto : Motorcycle) : int
+        + calculate(truck : Truck) : int
+    }
+
+    class TollStation {
+        - name : String
+        - city : String
+        - totalCollected : int
+        - processedVehicles : List<Object>
+        + TollStation(name : String, city : String)
+        + getName() : String
+        + getCity() : String
+        + getTotalCollected() : int
+        + getAllVehicles() : List<Object>
+        + processVehicle(car : Car)
+        + processVehicle(moto : Motorcycle)
+        + processVehicle(truck : Truck)
+        + printSummary() : void
+    }
+
+    class TollReport {
+        + printReport(stations : List<TollStation>) : void
+    }
+
+    class Main {
+        + main(args : String[]) : void
+    }
+
+    Main --> TollStation
+    Main --> Car
+    Main --> Motorcycle
+    Main --> Truck
+    Main --> TollReport
+
+    TollStation --> Car
+    TollStation --> Motorcycle
+    TollStation --> Truck
+    TollStation --> TollCalculator
+
+    TollReport --> TollStation
+}
+@enduml
